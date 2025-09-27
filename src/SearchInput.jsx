@@ -3,7 +3,7 @@ import { Search } from 'lucide-react'
 
 export default function SearchInput({value, onInputChange, onSearch}) {
   return (
-    <div className='mx-auto border shadow-md border-gray-300 rounded-md mt-3 max-w-md'>
+    <div className='mx-auto border shadow-md border-gray-500 rounded-md mt-3 max-w-md'>
       <div className='flex items-center p-3'>
         <input 
           type="text" 

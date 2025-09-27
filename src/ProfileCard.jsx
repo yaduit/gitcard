@@ -1,12 +1,13 @@
 import React from 'react'
 import { MapPin , Building2, Github,  Linkedin, Instagram, Twitter } from 'lucide-react'
+import profileImage from './assets/noProfile_vector.jpg'
 
 export default function ProfileCard({userData}) {
   return (
     <div className='flex flex-col items-center justify-center gap-2 p-4 m-auto mt-6 cursor-pointer rounded-md w-fit shadow-md shadow-gray-500'>
         <div>
-            <img className='rounded-full w-48 shadow-md border-2 object-cover border-white mt-2' src={userData?.avatar_url  || './assets/noProfile_vector.jpg'} alt="profile" />
-        </div>
+            <img className='rounded-full w-48 shadow-md border-2 object-cover border-white mt-2' src={userData?.avatar_url || profileImage } alt="profile" />
+        </div> 
         
         <div className='text-center gap-2'>
             <h3 className='text-2xl font-bold text-gray-900'>{userData?.login}</h3>
