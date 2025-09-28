@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ProfileCard from './ProfileCard'
 import SearchInput from './SearchInput'
 import Stats from './Stats';
+import ContiributionGraph from './ContiributionGraph';
 
 export default function App() {
 
@@ -84,6 +85,7 @@ export default function App() {
       <>
       <ProfileCard userData={profileData}/>
       <Stats userData={profileData} repoStats={repoStats}/>
+      <ContiributionGraph userData={profileData}/>
       </>
       )}
       
