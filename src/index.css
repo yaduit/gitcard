@@ -2,5 +2,8 @@
 
 body{
   font-family: sans-serif;
-  background-color: #FAF5F7;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: #fafafa;
 }

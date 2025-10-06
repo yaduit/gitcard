@@ -6,7 +6,17 @@ export default function Stats({userData,repoStats}) {
 
 
   return (
-    <div className='grid grid-cols-2 gap-6 border border-gray-300 shadow-md shadow-gray-500 rounded-lg p-6 mx-auto w-fit max-w-md'>
+    <div className="flex gap-5 border border-gray-300 shadow-md shadow-gray-500 rounded-md p-5  w-fit">
+      <div className='flex items-center space-x-3 p-3 bg-gray-50 rounded-lg '>
+        <Calendar className='w-6 h-6 text-red-500'/>
+        <div>
+          <p className='text-sm text-gray-600'>Joined Date</p>
+          <span className='text-xl font-semibold text-gray-800'>{userData?.created_at 
+        ? new Date(userData.created_at).toLocaleDateString() 
+        : "NA"}
+      </span>
+        </div>
+      </div>
       <div className='flex items-center space-x-3 p-3 bg-gray-50 rounded-lg'>
         <BookOpen className='w-6 h-6 text-blue-600'/>
         <div>
@@ -39,16 +49,6 @@ export default function Stats({userData,repoStats}) {
         </div>
       </div>
       
-      <div className='flex items-center space-x-3 p-3 bg-gray-50 rounded-lg '>
-        <Calendar className='w-6 h-6 text-red-500'/>
-        <div>
-          <p className='text-sm text-gray-600'>Joined Date</p>
-          <span className='text-xl font-semibold text-gray-800'>{userData?.created_at 
-        ? new Date(userData.created_at).toLocaleDateString() 
-        : "NA"}
-      </span>
-        </div>
-      </div>
 
       <div className='flex items-center space-x-3 p-3 bg-gray-50 rounded-lg'>
         <Calendar className='w-6 h-6 text-red-500'/>

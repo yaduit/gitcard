@@ -1,18 +1,15 @@
 
 export default function ContiributionGraph({userData}) {
   return (
-    <div>
-    <div className="mt-6">
-    <h3 className="text-lg font-semibold mb-3">Contribution Graph</h3>
+    <div className=" border border-gray-300 shadow shadow-gray-500 rounded-md w-fit">
     <img 
-      src={`https://ghchart.rshah.org/${userData?.login}`}
+      src={`https://ghchart.rshah.org//${userData?.login}`}
       alt={`${userData?.login}'s GitHub contributions`}
-      className="w-full rounded-lg shadow-md"
+      className="w-full p-5 font-semibold"
       onError={(e) => {
         e.target.style.display = 'none';
       }}
     />
-    </div>
     </div>
     
   )

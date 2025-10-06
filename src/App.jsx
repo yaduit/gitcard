@@ -3,7 +3,8 @@ import ProfileCard from './ProfileCard'
 import SearchInput from './SearchInput'
 import Stats from './Stats';
 import ContiributionGraph from './ContiributionGraph';
-
+import { Search } from 'lucide-react';
+import TopRepos from './TopRepos';
 export default function App() {
 
   const[searchInput ,setSearchInput] = useState('');
@@ -71,7 +72,8 @@ export default function App() {
   }
 
   return (
-    <div className=' flex flex-col items-center min-h-screen p-4  '>
+    <div className='min-h-screen mx-auto mt-3 p-3'>
+    <div >
       <SearchInput
       value={searchInput}
       onInputChange={handleSearch}
@@ -81,14 +83,40 @@ export default function App() {
 
       {error && <p className='text-red-500 text-sm mt-2'>{error}</p>}
 
+      {
+        !error && !loading && !profileData &&(
+          <div className='text-center py-12 capitalize'>
+            <div className='mb-4 '>
+              <Search size={64} className='text-gray-300 mx-auto'/>
+            </div>
+            <h3 className='text-xl text-gray-700 font-semibold mb-4'>start your search </h3>
+            <p className='text-gray-500 mb-4'>Enter a github us  ername above to view their profile</p>
+            
+
+          </div>
+        )
+      }
+
       { !error && !loading && profileData&&(
       <>
-      <ProfileCard userData={profileData}/>
+
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+      <div className='lg:col-span-1'>
+       <ProfileCard userData={profileData}/>
+      </div>
+      <div className='lg:col-span-2 space-y-6'>
       <Stats userData={profileData} repoStats={repoStats}/>
       <ContiributionGraph userData={profileData}/>
+      </div>
+      <TopRepos userData={profileData}/>
+
+      </div>
+      
       </>
       )}
       
     </div>
+    </div>
   )
 }
+  
