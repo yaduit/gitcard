@@ -17,8 +17,8 @@ export default function ProfileCard({userData}) {
         </div> 
         
         <div className='text-center gap-2'>
-            <h3 className='text-2xl font-bold text-gray-900'>{userData?.login}</h3>
-            <p className='text-base text-gray-500 mt-1'>{userData?.name}</p>
+            <h3 className='text-2xl font-bold text-gray-900'>{userData?.name || userData?.login}</h3>
+            <p className='text-base text-gray-500 mt-1'>{userData?.login}</p>
         </div>
 
       <div className='flex gap-4 mt-3'>
@@ -52,7 +52,10 @@ export default function ProfileCard({userData}) {
         </div>
       </div>
 
+      {userData?.bio &&(
         <p className='max-w-md text-center mt-2 text-sm text-gray-600 leading-relaxed break-words line-clamp-3 '>{userData?.bio || "not available"}.</p>
+      )}
+        
 
         <div className='flex items-center gap-6 mt-4'>
           {socials.github && (
@@ -65,11 +68,16 @@ export default function ProfileCard({userData}) {
                 <Mail className='w-5 h-5 text-gray-500 hover:text-gray-800 transition'/>
             </a>
            )}
-            {socials.blog && (
-               <a href={socials.blog} target="_blank" rel="noopener noreferrer">
-                <Globe className='w-5 h-5 text-sky-500 hover:text-sky-700 transition '/>
-            </a>
-            )}
+
+            {socials.portfolio && (
+          <a 
+            href={socials.portfolio.startsWith('http') ? socials.portfolio : `https://${socials.portfolio}`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Website"
+          >
+            <Globe className='w-5 h-5 text-sky-500 hover:text-sky-700 transition' />
+          </a>)}
            
             {socials.twitter && (
               <a href={socials.twitter} target="_blank" rel="noopener noreferrer">

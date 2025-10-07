@@ -99,6 +99,7 @@ export default function App() {
 
       { !error && !loading && profileData&&(
       <>
+      <div className='space-y-4'>
 
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
       <div className='lg:col-span-1'>
@@ -108,7 +109,10 @@ export default function App() {
       <Stats userData={profileData} repoStats={repoStats}/>
       <ContiributionGraph userData={profileData}/>
       </div>
+      <div >
       <TopRepos userData={profileData}/>
+      </div>
+      </div>
 
       </div>
       

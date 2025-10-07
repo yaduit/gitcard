@@ -32,6 +32,7 @@ export default function TopRepos({userData}) {
     finally{
         setLoading(false)
     }
+    }
 
     if (loading) {
     return (
@@ -59,16 +60,18 @@ export default function TopRepos({userData}) {
     )
   }
 
-    }
-  return (
-    <div>
-
+   return(
+    <div className='b-white shadow-md p-4 rounded-md max-h-[600px] space-y-4 overflow-y-auto'>
+      {repos.map((repo)=>(
+        <RepoCard key={repo.id} repo={repo} />
+      ))}
     </div>
   )
 }
 
 
-function RepoCard({repos}){
+
+function RepoCard({repo}){
      const languageColors = {
     JavaScript: '#f1e05a',
     TypeScript: '#3178c6',
@@ -91,26 +94,28 @@ function RepoCard({repos}){
     React: '#61dafb',
   }
 
-  const languageColor = languageColors[repos.language] || '#8b949e'
+  const languageColor = languageColors[repo.language] || '#8b949e'
 
 
     return(
-      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 b-white'>
+      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 bg-white'>
 
         <div className='flex items-center justify-between mb-3'>
-          <a href={repos.html_url} target='_blank' rel='noopener noreferrer' className='text-xl font-bold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-2 '></a>
+          <a href={repo.html_url} target='_blank' rel='noopener noreferrer' className='text-xl font-bold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-2'>
           <Code className='w-5 h-5 flex-shrink-0'/>
-          <span>{repos.name}</span>
-          <ExternalLink className='w-4 h-4 text-gray-400 hover:text-nlue-600 transition-colors flex-shrink-0'/>
+          <span>{repo.name}</span>
+          <ExternalLink className='w-4 h-4 text-gray-400 hover:text-blue-600 transition-colors flex-shrink-0'/>
+          </a>
+
         </div>
 
 
-      <div className='flex items-center gsp-6 mb-3 text-sm'>
+      <div className='flex items-center gap-6 mb-3 text-sm'>
 
         <div className='flex items-center gap-1.5'>
           <Star className='w-4 h-4 text-yellow-500'/>
           <span className='font-semibold text-gray-700'>Stars:</span>
-          <span className='text-gray-900'>{repos.stargazers_count}</span>
+          <span className='text-gray-900'>{repo.stargazers_count}</span>
 
         </div>
         <span className='text-gray-300'>||</span>
@@ -118,15 +123,15 @@ function RepoCard({repos}){
         <div className='flex items-center gap-1.5'>
           <GitFork className='w-4 h-4 text-gray-500'/>
           <span className='font-semibold text-gray-700'>Forks:</span>
-          <span className='text-gray-900'>{repos.forks_count}</span>
+          <span className='text-gray-900'>{repo.forks_count}</span>
 
         </div>
-       {repos.language && <span className='text-gray-300'>||</span>}
-       {repos.language &&(
+       {repo.language && <span className='text-gray-300'>||</span>}
+       {repo.language &&(
         <div className='flex items-center gap-1.5'>
           <span className='w-3 h-3 rounded-full'style={{backgroundColor : languageColor}}></span>
           <span className='font-semibold text-gray-700'>Language:</span>
-          <span className='text-gray-900'>{repos.language}</span>
+          <span className='text-gray-900'>{repo.language}</span>
 
         </div>
        )}
@@ -134,7 +139,7 @@ function RepoCard({repos}){
        <div className='mb-3'>
         <p className='text-sm text-gray-700 leading-relaxed'>
           <span className='font-semibold text-gray-800'>Description:</span>
-          {repos.description||"No Description Provided"}
+          {repo.description||"No Description Provided"}
        </p>
 
        </div>
