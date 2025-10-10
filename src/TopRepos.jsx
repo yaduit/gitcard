@@ -61,7 +61,7 @@ export default function TopRepos({userData}) {
   }
 
    return(
-    <div className='b-white shadow-md p-4 rounded-md max-h-[600px] space-y-4 overflow-y-auto'>
+    <div className='b-white shadow-sm hover:shadow-md transition duration-200 shadow-gray-500 p-4 rounded-md max-h-[400px] space-y-4 overflow-y-auto'>
       {repos.map((repo)=>(
         <RepoCard key={repo.id} repo={repo} />
       ))}
@@ -98,9 +98,9 @@ function RepoCard({repo}){
 
 
     return(
-      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 bg-white'>
+      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 bg-white p-5 items-center'>
 
-        <div className='flex items-center justify-between mb-3'>
+        <div className='flex items-center justify-between mb-3 p-4'>
           <a href={repo.html_url} target='_blank' rel='noopener noreferrer' className='text-xl font-bold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-2'>
           <Code className='w-5 h-5 flex-shrink-0'/>
           <span>{repo.name}</span>
@@ -114,7 +114,7 @@ function RepoCard({repo}){
 
         <div className='flex items-center gap-1.5'>
           <Star className='w-4 h-4 text-yellow-500'/>
-          <span className='font-semibold text-gray-700'>Stars:</span>
+          <span className='font-semibold  text-gray-700'>Stars:</span>
           <span className='text-gray-900'>{repo.stargazers_count}</span>
 
         </div>
@@ -136,17 +136,17 @@ function RepoCard({repo}){
         </div>
        )}
 
+       
+
+      </div>
+
        <div className='mb-3'>
-        <p className='text-sm text-gray-700 leading-relaxed'>
+        <p className='text-sm text-gray-700 leading-relaxed '>
           <span className='font-semibold text-gray-800'>Description:</span>
           {repo.description||"No Description Provided"}
        </p>
 
        </div>
-
-      </div>
-
-
       </div>
     )
 

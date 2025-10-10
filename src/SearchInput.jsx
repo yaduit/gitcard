@@ -1,10 +1,12 @@
 import React from 'react'
-import { Search } from 'lucide-react'
+import { Search ,Github} from 'lucide-react'
 
 export default function SearchInput({value, onInputChange, onSearch}) {
   return (
-    <div className='mx-auto border shadow-md border-gray-500 rounded-md mt-3 max-w-md'>
-      <div className='flex items-center p-3'>
+    <div className=' mx-auto  border shadow-md border-gray-500 rounded-md mt-2 max-w-sm'>
+
+      
+      <div className='flex items-center p-2 pl-5'>
         <input 
           type="text" 
           placeholder='Search someone' 
@@ -20,7 +22,9 @@ export default function SearchInput({value, onInputChange, onSearch}) {
         >
           <Search className='w-5 h-5 text-gray-500 hover:text-gray-700 transition-colors'/>
         </button>
+        
       </div>
+        
     </div>
   )
 }

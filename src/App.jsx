@@ -3,8 +3,9 @@ import ProfileCard from './ProfileCard'
 import SearchInput from './SearchInput'
 import Stats from './Stats';
 import ContiributionGraph from './ContiributionGraph';
-import { Search } from 'lucide-react';
+import { Search , Github } from 'lucide-react';
 import TopRepos from './TopRepos';
+import Header from './Header';
 export default function App() {
 
   const[searchInput ,setSearchInput] = useState('');
@@ -72,16 +73,37 @@ export default function App() {
   }
 
   return (
-    <div className='min-h-screen mx-auto mt-3 p-3'>
-    <div >
-      <SearchInput
-      value={searchInput}
-      onInputChange={handleSearch}
-      onSearch={fetchData}
-      />
-      {loading && <p className='text-black text-sm mt-2'>Loading...</p>}
+    <div className='min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-1  mx-auto '>
+    <div>
+      <div className='flex item-start mt-2 ml-2'>
+        <Header/>
+        <div className=' mx-auto '>
+            <SearchInput
+            value={searchInput}
+            onInputChange={handleSearch}
+            onSearch={fetchData}
+            />
+        </div>
+        <div className='items-end mr-2 mt-2'>
+          <a 
+              href="https://github.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className='flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition-colors'
+            >
+              <Github className='w-5 h-5' />
+              <span>Login with GitHub</span>
+            </a>
+        </div>
 
-      {error && <p className='text-red-500 text-sm mt-2'>{error}</p>}
+      </div>
+
+    
+      
+      {loading && <p className='text-black text-sm mt-2 text-center'>Loading...</p>}
+
+      {error && <p className='text-red-500 text-sm mt-2 text-center'>{error}</p>}
+      
 
       {
         !error && !loading && !profileData &&(
@@ -99,22 +121,35 @@ export default function App() {
 
       { !error && !loading && profileData&&(
       <>
-      <div className='space-y-4'>
+      
 
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
-      <div className='lg:col-span-1'>
-       <ProfileCard userData={profileData}/>
-      </div>
-      <div className='lg:col-span-2 space-y-6'>
-      <Stats userData={profileData} repoStats={repoStats}/>
-      <ContiributionGraph userData={profileData}/>
-      </div>
-      <div >
-      <TopRepos userData={profileData}/>
-      </div>
-      </div>
+       <div className='border-1  p-3 m-3 '>
+            
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+              
+              
+              <div className='lg:col-span-1'>
+                <ProfileCard userData={profileData} />
+              </div>
 
-      </div>
+              
+              <div className='lg:col-span-2 space-y-6'>
+                <Stats userData={profileData} repoStats={repoStats} />
+                <ContiributionGraph userData={profileData} />
+              </div>
+
+            </div>
+
+          
+            <div className='flex justify-center'>
+              <div className='w-full max-w-6xl'>
+                <TopRepos userData={profileData} />
+              </div>
+            </div>
+
+          </div>
+
+      
       
       </>
       )}

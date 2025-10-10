@@ -11,9 +11,9 @@ export default function ProfileCard({userData}) {
     portfolio: userData?.blog,
   }
   return (
-    <div className='flex flex-col items-center justify-center gap-2  mt-3 cursor-pointer rounded-xl w-full max-w-lg shadow-md hover:shadow-lg transition b-white shadow-gray-500 p-3'>
+    <div className='flex flex-col items-center justify-center gap-2  mt-1 cursor-pointer rounded-xl w-full max-w-lg shadow-sm hover:shadow-md duration-200 transition bg-white shadow-gray-500 p-3'>
         <div>
-            <img className='rounded-full w-48 shadow-md border-2 object-cover border-white mt-2' src={userData?.avatar_url || profileImage } alt="profile" />
+            <img className='rounded-full w-48 shadow-md border-2 object-cover border-white mt-1' src={userData?.avatar_url || profileImage } alt="profile" />
         </div> 
         
         <div className='text-center gap-2'>
