@@ -98,10 +98,10 @@ function RepoCard({repo}){
 
 
     return(
-      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 bg-white p-5 items-center'>
+      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 bg-white  items-center p-5'>
 
-        <div className='flex items-center justify-between mb-3 p-4'>
-          <a href={repo.html_url} target='_blank' rel='noopener noreferrer' className='text-xl font-bold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-2'>
+        <div className='flex items-center justify-between mb-1 p-4 '>
+          <a href={repo.html_url} target='_blank' rel='noopener noreferrer' className='text-xl font-bold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-2 mx-auto'>
           <Code className='w-5 h-5 flex-shrink-0'/>
           <span>{repo.name}</span>
           <ExternalLink className='w-4 h-4 text-gray-400 hover:text-blue-600 transition-colors flex-shrink-0'/>
@@ -110,7 +110,7 @@ function RepoCard({repo}){
         </div>
 
 
-      <div className='flex items-center gap-6 mb-3 text-sm'>
+      <div className='flex items-center justify-between gap-2 p-3 mb-3 text-md '>
 
         <div className='flex items-center gap-1.5'>
           <Star className='w-4 h-4 text-yellow-500'/>
@@ -140,9 +140,9 @@ function RepoCard({repo}){
 
       </div>
 
-       <div className='mb-3'>
-        <p className='text-sm text-gray-700 leading-relaxed '>
-          <span className='font-semibold text-gray-800'>Description:</span>
+       <div className='mb-3 p-2 text-center'>
+        <p className='text-md text-gray-700 leading-relaxed '>
+          <span className='font-semibold text-gray-800'>Description: </span>
           {repo.description||"No Description Provided"}
        </p>
 

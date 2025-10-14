@@ -73,11 +73,11 @@ export default function App() {
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-1  mx-auto '>
-    <div>
-      <div className='flex item-start mt-2 ml-2'>
+    <div className=' bg-gradient-to-br from-gray-50 to-gray-100 py-1  '>
+    
+      <div className='flex items-center justify-between  mx-2'>
         <Header/>
-        <div className=' mx-auto '>
+        <div className='  '>
             <SearchInput
             value={searchInput}
             onInputChange={handleSearch}
@@ -89,7 +89,7 @@ export default function App() {
               href="https://github.com/login"
               target="_blank"
               rel="noopener noreferrer"
-              className='flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition-colors'
+              className='flex items-center gap-2 px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors'
             >
               <Github className='w-5 h-5' />
               <span>Login with GitHub</span>
@@ -112,7 +112,7 @@ export default function App() {
               <Search size={64} className='text-gray-300 mx-auto'/>
             </div>
             <h3 className='text-xl text-gray-700 font-semibold mb-4'>start your search </h3>
-            <p className='text-gray-500 mb-4'>Enter a github us  ername above to view their profile</p>
+            <p className='text-gray-500 mb-4'>Enter a github username above to view their profile</p>
             
 
           </div>
@@ -123,25 +123,24 @@ export default function App() {
       <>
       
 
-       <div className='border-1  p-3 m-3 '>
+       <div className=' p-3 shadow bg-white rounded-2xl max-w-7xl mx-auto mt-1'>
             
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+            <div className='flex items-center'>
               
               
-              <div className='lg:col-span-1'>
+              <div className='ml-2'>
                 <ProfileCard userData={profileData} />
               </div>
 
-              
-              <div className='lg:col-span-2 space-y-6'>
+              <div className='ml-7 space-y-8 '>
                 <Stats userData={profileData} repoStats={repoStats} />
                 <ContiributionGraph userData={profileData} />
               </div>
-
+               
             </div>
 
           
-            <div className='flex justify-center'>
+            <div className='flex justify-center mt-2'>
               <div className='w-full max-w-6xl'>
                 <TopRepos userData={profileData} />
               </div>
@@ -155,7 +154,7 @@ export default function App() {
       )}
       
     </div>
-    </div>
+    
   )
 }
-  
+   

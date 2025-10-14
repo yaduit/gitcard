@@ -11,7 +11,7 @@ export default function ProfileCard({userData}) {
     portfolio: userData?.blog,
   }
   return (
-    <div className='flex flex-col items-center justify-center gap-2  mt-1 cursor-pointer rounded-xl w-full max-w-lg shadow-sm hover:shadow-md duration-200 transition bg-white shadow-gray-500 p-3'>
+    <div className='flex flex-col items-center justify-center gap-2  mt-1 cursor-pointer rounded-md w-full max-w-fit min-h-[400px] border-gray-300 shadow-sm hover:shadow-md transition-shadow duration-200 bg-white p-4'>
         <div>
             <img className='rounded-full w-48 shadow-md border-2 object-cover border-white mt-1' src={userData?.avatar_url || profileImage } alt="profile" />
         </div> 
@@ -21,14 +21,14 @@ export default function ProfileCard({userData}) {
             <p className='text-base text-gray-500 mt-1'>{userData?.login}</p>
         </div>
 
-      <div className='flex gap-4 mt-3'>
+      <div className='flex flex-col sm:flex-row gap-3 mt-2 text-sm'>
          <p className='flex items-center gap-3 '>
-            <Building2 className='w-4 h-4 text-gray-800 flex-1'/>
+            <Building2 className='w-4 h-4 text-gray-800'/>
             <span className='text-gray-600'>Company: </span>
             <span className='font-semibold text-sm'>{userData.company ||"NA"}</span>
           </p>
           <p className='flex items-center gap-3'>
-            <MapPin className='w-4 h-4 text-gray-800 flex-1'/>
+            <MapPin className='w-4 h-4 text-gray-800'/>
             <span className='text-gray-600'>Location: </span>
             <span className='font-semibold text-sm break-words'>{userData.location|| "NA"}</span>
           </p>
@@ -53,7 +53,7 @@ export default function ProfileCard({userData}) {
       </div>
 
       {userData?.bio &&(
-        <p className='max-w-md text-center mt-2 text-sm text-gray-600 leading-relaxed break-words line-clamp-3 '>{userData?.bio || "not available"}.</p>
+        <p className='max-w-md text-center mt-2 text-sm text-gray-600 leading-relaxed break-words line-clamp-3 '>{userData?.bio || "Bio not available"}.</p>
       )}
         
 

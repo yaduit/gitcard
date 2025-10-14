@@ -1,8 +1,8 @@
 
 export default function ContiributionGraph({userData}) {
   return (
-    <div className=" border border-gray-300 shadow-sm hover:shadow-md transition duration-200 shadow-gray-500 rounded-md bg-white w-[700px] h-auto">
-      <div className="bg-gray-50 rounded-lg p-4 overflow-x-auto">
+    <div className=" border border-gray-300 shadow-sm hover:shadow-md transition-shadow duration-200 rounded-md bg-white w-[700px] h-[200px] p-6">
+      <div className="bg-gray-50 rounded-md overflow-x-auto mt-4">
     <img 
       src={`https://ghchart.rshah.org/${userData?.login}`}
       alt={`${userData?.login}'s GitHub contributions`}
