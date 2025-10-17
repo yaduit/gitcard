@@ -6,6 +6,7 @@ import ContiributionGraph from './ContiributionGraph';
 import { Search , Github } from 'lucide-react';
 import TopRepos from './TopRepos';
 import Header from './Header';
+import Achievements from './Achievements';
 export default function App() {
 
   const[searchInput ,setSearchInput] = useState('');
@@ -73,7 +74,7 @@ export default function App() {
   }
 
   return (
-    <div className=' bg-gradient-to-br from-gray-50 to-gray-100 py-1  '>
+    <div className='w-[100vh] h-[100vh] mx-auto space-x-3 bg-gradient-to-br from-gray-50 to-gray-100 py-1 '>
     
       <div className='flex items-center justify-between  mx-2'>
         <Header/>
@@ -123,7 +124,7 @@ export default function App() {
       <>
       
 
-       <div className=' p-3 shadow bg-white rounded-2xl max-w-7xl mx-auto mt-1'>
+       <div className=' p-3 shadow bg-white rounded-2xl  w-fit mt-1'>
             
             <div className='flex items-center'>
               
@@ -135,6 +136,7 @@ export default function App() {
               <div className='ml-7 space-y-8 '>
                 <Stats userData={profileData} repoStats={repoStats} />
                 <ContiributionGraph userData={profileData} />
+                <Achievements userData={profileData.login} />
               </div>
                
             </div>

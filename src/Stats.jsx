@@ -6,7 +6,7 @@ export default function Stats({userData,repoStats}) {
 
 
   return (
-    <div className="grid grid-cols-3 border border-gray-300 shadow-sm hover:shadow-md transition-shadow duration-200 bg-white w-full rounded-md">
+    <div className="grid grid-cols-1 sm:grid-cols-2 border border-gray-300 shadow-sm hover:shadow-md transition-shadow duration-200 bg-white w-full rounded-md">
       <div className='flex items-center space-x-5 p-2 bg-gray-50 rounded-lg '>
         <Calendar className='w-6 h-6 text-red-500'/>
         <div>
