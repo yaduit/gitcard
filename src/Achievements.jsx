@@ -1,10 +1,9 @@
-
-   export default function Achievements({ userData }) {
+export default function Achievements({ userData }) {
   if (!userData) {
     return (
       <div className="flex flex-col justify-center items-center border border-gray-300 bg-gray-50 rounded-xl shadow-sm p-6 w-full h-[250px] text-center">
         <p className="text-gray-400 font-medium text-lg">🏆 Achievements</p>
-        <p className="text-gray-300 text-sm mt-2">Search a user to view trophies</p>
+        <p className="text-gray-300 text-sm mt-2">Search a user to view achievements</p>
       </div>
     );
   }

@@ -74,31 +74,28 @@ export default function App() {
   }
 
   return (
-    <div className='w-[100vh] h-[100vh] mx-auto space-x-3 bg-gradient-to-br from-gray-50 to-gray-100 py-1 '>
-    
-      <div className='flex items-center justify-between  mx-2'>
-        <Header/>
-        <div className='  '>
+     <div className='mx-auto m-2'>
+        <div className='flex justify-between gap-3'>
+          <Header/>
+
             <SearchInput
-            value={searchInput}
-            onInputChange={handleSearch}
-            onSearch={fetchData}
-            />
-        </div>
-        <div className='items-end mr-2 mt-2'>
-          <a 
-              href="https://github.com/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className='flex items-center gap-2 px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors'
-            >
-              <Github className='w-5 h-5' />
-              <span>Login with GitHub</span>
-            </a>
-        </div>
+              value={searchInput}
+              onInputChange={handleSearch}
+              onSearch={fetchData}
+              />
 
-      </div>
+              <a 
+                href="https://github.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className='flex items-center gap-2 p-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors m-3'
+              >
+                <Github className='w-5 h-5' />
+                <span>Login</span>
+              </a>
+        </div>     
 
+     
     
       
       {loading && <p className='text-black text-sm mt-2 text-center'>Loading...</p>}
@@ -124,32 +121,21 @@ export default function App() {
       <>
       
 
-       <div className=' p-3 shadow bg-white rounded-2xl  w-fit mt-1'>
-            
-            <div className='flex items-center'>
+    
+           
               
-              
-              <div className='ml-2'>
-                <ProfileCard userData={profileData} />
-              </div>
+              <div className='border border-gray-300 shadow-md  p-5'>
 
-              <div className='ml-7 space-y-8 '>
+                <div className=''>
+                <ProfileCard userData={profileData} />
+                <TopRepos userData={profileData} />
+                </div>
+                <div className=''>
                 <Stats userData={profileData} repoStats={repoStats} />
                 <ContiributionGraph userData={profileData} />
                 <Achievements userData={profileData.login} />
+                </div>
               </div>
-               
-            </div>
-
-          
-            <div className='flex justify-center mt-2'>
-              <div className='w-full max-w-6xl'>
-                <TopRepos userData={profileData} />
-              </div>
-            </div>
-
-          </div>
-
       
       
       </>
@@ -159,4 +145,4 @@ export default function App() {
     
   )
 }
-   
+    

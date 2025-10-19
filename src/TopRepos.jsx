@@ -11,7 +11,7 @@ export default function TopRepos({userData}) {
     if (userData?.login) {
       fetchTopRepo()
     }
-  }, [userData])
+  },[userData])
 
   
     const fetchTopRepo = async ()=>{
@@ -98,7 +98,7 @@ function RepoCard({repo}){
 
 
     return(
-      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 bg-white  items-center p-5'>
+      <div className='border border-gray-200 shadow-sm hover:shadow-md transition duration-200 bg-white  items-center p-5 max-w-5xl'>
 
         <div className='flex items-center justify-between mb-1 p-4 '>
           <a href={repo.html_url} target='_blank' rel='noopener noreferrer' className='text-xl font-bold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-2 mx-auto'>
