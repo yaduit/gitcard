@@ -124,7 +124,7 @@ export default function App() {
     
            
               
-              <div className='border border-gray-300 shadow-md  p-5'>
+              <div className='border border-gray-300 shadow-md p-5'>
 
                 <div className=''>
                 <ProfileCard userData={profileData} />
