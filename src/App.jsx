@@ -5,7 +5,7 @@ import Stats from './Stats';
 import ContiributionGraph from './ContiributionGraph';
 import { Search , Github } from 'lucide-react';
 import TopRepos from './TopRepos';
-import Header from './Header';
+import Logo from './Logo';
 import Achievements from './Achievements';
 export default function App() {
 
@@ -74,9 +74,9 @@ export default function App() {
   }
 
   return (
-     <div className='mx-auto m-2'>
+     <div className=' m-5'>
         <div className='flex justify-between gap-3'>
-          <Header/>
+          <Logo/>
 
             <SearchInput
               value={searchInput}
@@ -88,7 +88,7 @@ export default function App() {
                 href="https://github.com/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className='flex items-center gap-2 p-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors m-3'
+                className='flex items-center gap-2 p-2 shadow-md text-gray-700 rounded-lg hover:bg-gray-200 transition-colors m-3'
               >
                 <Github className='w-5 h-5' />
                 <span>Login</span>
@@ -124,18 +124,23 @@ export default function App() {
     
            
               
-              <div className='border border-gray-300 shadow-md p-5'>
+<div className="border border-gray-300 rounded-md shadow-md p-5 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-2">
+  
 
-                <div className=''>
-                <ProfileCard userData={profileData} />
-                <TopRepos userData={profileData} />
-                </div>
-                <div className=''>
-                <Stats userData={profileData} repoStats={repoStats} />
-                <ContiributionGraph userData={profileData} />
-                <Achievements userData={profileData.login} />
-                </div>
-              </div>
+  <div className="flex flex-col gap-4 ml-3">
+    <ProfileCard userData={profileData} />
+    <TopRepos userData={profileData} />
+  </div>
+
+
+  <div className="flex flex-col gap-4 ">
+    <Stats userData={profileData} repoStats={repoStats} />
+    <ContiributionGraph userData={profileData} />
+    <Achievements userData={profileData.login} />
+  </div>
+
+</div>
+
       
       
       </>

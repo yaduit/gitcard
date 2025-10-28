@@ -1,31 +1,26 @@
 import React from 'react'
-import { Search ,Github} from 'lucide-react'
+import { Search } from 'lucide-react'
 
-export default function SearchInput({value, onInputChange, onSearch}) {
+export default function SearchInput({ value, onInputChange, onSearch }) {
   return (
-    <div className=' mx-auto  border shadow-md border-gray-500 rounded-md mt-2 max-w-sm'>
-
-      
-      <div className='flex items-center p-2 pl-5'>
-        <input 
-          type="text" 
-          placeholder='Search someone' 
-          value={value} 
-          onChange={onInputChange} 
-          required 
-          className='flex-1 outline-none placeholder-gray-400 text-gray-700'
+    <div className="mx-auto mt-3 max-w-sm border border-gray-300 rounded-full shadow-sm bg-white transition-all hover:shadow-md">
+      <div className="flex items-center px-4 py-2">
+        <input
+          type="text"
+          placeholder="Search GitHub user..."
+          value={value}
+          onChange={onInputChange}
+          required
+          className="flex-1 text-sm text-gray-700 placeholder-gray-400 outline-none bg-transparent h-5"
         />
-        <button 
-          onClick={onSearch} 
-          type='submit' 
-          className='p-2 ml-2 rounded-md hover:bg-gray-100 transition-colors'
+        <button
+          onClick={onSearch}
+          type="submit"
+          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
         >
-          <Search className='w-5 h-5 text-gray-500 hover:text-gray-700 transition-colors'/>
+          <Search className="w-5 h-5 text-gray-600" />
         </button>
-        
       </div>
-        
     </div>
   )
 }
-
