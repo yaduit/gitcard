@@ -42,7 +42,7 @@ export default function ProfileCard({ userData }) {
   }
 
   return (
-    <div className="relative flex flex-col md:flex-row items-center md:items-start justify-start gap-4 mt-2 rounded-xl w-full border border-gray-300 shadow-sm hover:shadow-md transition-all duration-200 bg-white p-4 max-w-[650px] mx-auto overflow-hidden">
+    <div className="relative flex flex-col ml-2 md:flex-row items-center md:items-start justify-start gap-4 mt-2 rounded-xl w-full border border-gray-300 shadow-sm hover:shadow-md transition-all duration-200 bg-white p-6 max-w-[650px] mx-auto overflow-hidden">
 
       
       <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-10"></div>
