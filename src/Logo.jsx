@@ -3,13 +3,13 @@ import { Github } from 'lucide-react'
 
 export default function Logo() {
   return (
-    <div className='shadow-sm rounded-md pr-2 cursor-pointer'>
-        <div className='flex items-center gap-1 m-2 '>
-        <div className=' rounded-full p-2 '>
-             <Github size={30} className='text-gray-600' />
+    
+        <div className='flex items-center gap-1 m-2 p-1 shadow-md rounded-lg'>
+        <div className=' rounded-full p-1 '>
+             <Github size={20} className='text-gray-600' />
         </div>       
-        <span className=' text-gray-700 text-md'>GitCard</span>
+        <span className=' text-gray-700 text-sm text-center p-1'>GitCard</span>
       </div>
-    </div>
+   
   )
 }

@@ -30,7 +30,7 @@ export default function Stats({ userData, repoStats }) {
   ];
 
   return (
-    <div className="relative overflow-hidden border border-gray-200 rounded-xl bg-white shadow w-full max-w-md transition-all duration-300 hover:shadow-md p-5">
+    <div className="relative overflow-hidden border border-gray-200 rounded-xl bg-white shadow lg:w-4xl max-w-md transition-all duration-300 hover:shadow-md p-5">
       <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-10"></div>
 
       <div className="relative z-10 px-2 mb-2 pb-2 flex items-center gap-2">

@@ -68,9 +68,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-5">
+    <div className="min-h-screen bg-gray-50 p-2">
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row justify-between gap-4 ">
         <Logo />
 
         <SearchInput
@@ -78,16 +78,21 @@ export default function App() {
           onInputChange={handleSearch}
           onSearch={fetchData}
         />
-
-        <a
+      <div className='items-center mt-2  shadow-lg rounded-lg p-3 mr-2 hover:bg-gray-200 transition'>
+           <a
           href="https://github.com/login"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 text-sm bg-white border border-gray-300 shadow-sm rounded-md hover:bg-gray-100 transition"
+          className="flex items-center gap-1 "
         >
-          <Github className="w-5 h-5 text-gray-700" />
-          <span className="font-medium text-gray-700">Login</span>
+          <Github className="w-5 h-5 text-gray-700 " />
+          <span className="font-medium text-gray-700 px-2 py-1">Login</span>
         </a>
+      </div>
+        
+
+      
+       
       </div>
 
       {/* Loading & Error States */}
@@ -101,26 +106,31 @@ export default function App() {
 
       {/* Empty State */}
       {!error && !loading && !profileData && (
-        <div className="text-center py-16">
-          <Search size={64} className="text-gray-300 mx-auto mb-3" />
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+      <div className="border border-gray-200 bg-white rounded-xl shadow-lg lg:w-7xl lg:h-[800px] mx-auto mt-3 ">
+        <div className='text-center'>
+          <Search size={140} className="text-gray-300 mx-auto mb-5 mt-40" />
+          <h3 className="text-2xl font-semibold text-gray-600 mt-5 mb-2">
             Start Your Search
           </h3>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-lg mt-5">
             Enter a GitHub username above to view their profile.
           </p>
+
+        </div>
+        
         </div>
       )}
 
       {/* Profile Section */}
       {!error && !loading && profileData && (
-        <div className="border border-gray-200 bg-white rounded-xl shadow-md p-6 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
+        <div className="border border-gray-200 bg-white rounded-xl shadow-lg p-6 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4 md:w-5xl lg:w-7xl mx-auto">
           <div className="flex flex-col gap-6 ml-3">
+            
             <ProfileCard userData={profileData} />
             <TopRepos userData={profileData} />
           </div>
 
-          <div className="flex flex-col gap-6 ">
+          <div className="flex flex-col gap-6 ml-3">
             <Stats userData={profileData} repoStats={repoStats} />
             <ContiributionGraph userData={profileData} />
             <Achievements userData={profileData.login} />

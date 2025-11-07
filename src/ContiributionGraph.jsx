@@ -45,13 +45,13 @@ export default function ContributionGraph({ userData }) {
         </div>
       </div>
 
-      <div className="px-5 pb-5">
+      <div className="px-5 pb-5 ">
         <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-4 border border-gray-100 shadow-inner">
           <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
             <img
               src={`https://ghchart.rshah.org/${userData.login}`}
               alt={`${userData.login}'s GitHub contributions`}
-              className="min-w-[500px] w-full"
+              className="min-w-[500px] w-4xl"
               loading="lazy"
               onError={(e) => {
                 e.target.parentElement.innerHTML = `
