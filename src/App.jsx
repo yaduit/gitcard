@@ -7,6 +7,8 @@ import { Search, Github } from 'lucide-react'
 import TopRepos from './TopRepos'
 import Logo from './Logo'
 import Achievements from './Achievements'
+import SkeletonLoading from './SkeletonLoading'
+
 
 export default function App() {
   const [searchInput, setSearchInput] = useState('')
@@ -97,7 +99,10 @@ export default function App() {
 
       {/* Loading & Error States */}
       {loading && (
-        <p className="text-gray-700 text-sm mt-2 text-center">Loading...</p>
+        
+          <SkeletonLoading/>
+       
+       
       )}
 
       {error && (
