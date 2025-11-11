@@ -70,9 +70,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-2">
+    <div className="min-h-screen bg-gray-50 p-2 mt-2">
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between gap-4 ">
+      <div className="flex flex-row justify-between gap-4 ">
         <Logo />
 
         <SearchInput
@@ -80,18 +80,19 @@ export default function App() {
           onInputChange={handleSearch}
           onSearch={fetchData}
         />
-      <div className='items-center mt-2  shadow-lg rounded-lg p-3 mr-2 hover:bg-gray-200 transition'>
-           <a
-          href="https://github.com/login"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 "
-        >
-          <Github className="w-5 h-5 text-gray-700 " />
-          <span className="font-medium text-gray-700 px-2 py-1">Login</span>
-        </a>
-      </div>
-        
+  
+  <a
+  href="https://github.com/login"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-1 border border-gray-300 text-gray-700 px-3 py-[1px] rounded-lg text-sm hover:bg-gray-100 transition mr-2"
+>
+  <Github className="w-4 h-4" />
+  <span>Login</span>
+</a>
+
+
+
 
       
        
@@ -128,19 +129,21 @@ export default function App() {
 
       {/* Profile Section */}
       {!error && !loading && profileData && (
-        <div className="border border-gray-200 bg-white rounded-xl shadow-lg p-6 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4 md:w-5xl lg:w-7xl mx-auto">
-          <div className="flex flex-col gap-6 ml-3">
-            
-            <ProfileCard userData={profileData} />
-            <TopRepos userData={profileData} />
-          </div>
+       <div className="border border-gray-200 bg-white rounded-xl shadow-lg p-4 sm:p-6 
+                grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4 
+                w-full max-w-6xl mx-auto">
+  <div className="flex flex-col gap-6">
+    <ProfileCard userData={profileData} />
+    <TopRepos userData={profileData} />
+  </div>
 
-          <div className="flex flex-col gap-6 ml-3">
-            <Stats userData={profileData} repoStats={repoStats} />
-            <ContiributionGraph userData={profileData} />
-            <Achievements userData={profileData.login} />
-          </div>
-        </div>
+  <div className="flex flex-col gap-6">
+    <Stats userData={profileData} repoStats={repoStats} />
+    <ContiributionGraph userData={profileData} />
+    <Achievements userData={profileData.login} />
+  </div>
+</div>
+
       )}
     </div>
   )
