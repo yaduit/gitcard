@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import ProfileCard from './ProfileCard'
 import SearchInput from './SearchInput'
 import Stats from './Stats'
@@ -16,6 +16,21 @@ export default function App() {
   const [repoStats, setRepoStats] = useState({ totalStars: 0, totalForks: 0 })
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+
+
+  useEffect(()=>{
+    const saved = localStorage.getItem("profileData");
+    if(saved){
+      setProfileData(JSON.parse(saved))
+    }
+
+  },[]);
+
+  useEffect(()=>{
+    if(profileData){
+      localStorage.setItem("profileData",JSON.stringify(profileData))
+    }
+  },[profileData]);
 
   const handleSearch = (e) => setSearchInput(e.target.value)
 
@@ -70,7 +85,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-2 mt-2">
+  <div className="min-h-screen bg-gray-50 p-2 mt-2">
       {/* Header Section */}
       <div className="flex flex-row justify-between gap-4 ">
         <Logo />
@@ -132,19 +147,16 @@ export default function App() {
        <div className="border border-gray-200 bg-white rounded-xl shadow-lg p-4 sm:p-6 
                 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4 
                 w-full max-w-6xl mx-auto">
-  <div className="flex flex-col gap-6">
-    <ProfileCard userData={profileData} />
-    <TopRepos userData={profileData} />
-  </div>
+        <div className="flex flex-col gap-6">
+          <ProfileCard userData={profileData} />
+          <TopRepos userData={profileData} />
+        </div>
 
-  <div className="flex flex-col gap-6">
-    <Stats userData={profileData} repoStats={repoStats} />
-    <ContiributionGraph userData={profileData} />
-    <Achievements userData={profileData.login} />
-  </div>
-</div>
-
-      )}
-    </div>
-  )
+        <div className="flex flex-col gap-6">
+          <Stats userData={profileData} repoStats={repoStats} />
+          <ContiributionGraph userData={profileData} />
+          <Achievements userData={profileData.login} />
+        </div>
+        </div>)}
+    </div>)
 }
